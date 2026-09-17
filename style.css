@@ -59,8 +59,8 @@ h2 {
     background: #FFF;
     border: 1px solid #0095ff;
     border-radius: 6px;
-    padding: 6px 8px;
-    color: #0095ff;
+    padding: 7px;
+    color: #0095ff!important;
     margin: 3px;
 }
 
@@ -72,6 +72,15 @@ h2 {
 .btn-kopiuj:active {
     background: #00518a;
 }
+
+
+a.btn-kopiuj:hover{cursor:pointer;color:#0095ff}
+a.btn-kopiuj > i {margin:12px 0;}
+
+button[data-toggle="tooltip"] {background:none;border:none;}
+button {color: #0095ff;}
+
+#klasy-ip-ik button.btn-kopiuj{margin:4px 0;padding:9px 7px;}
 
 .module-box {
     padding: 24px;
