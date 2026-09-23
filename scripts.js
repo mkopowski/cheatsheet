@@ -50,6 +50,7 @@ document.addEventListener('click', function (event) {
 
     // 4. POBRANIE CZYSTEGO HTML
     let textToCopy = copyType === 'inner' ? clone.innerHTML : clone.outerHTML;
+    textToCopy = textToCopy.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
     textToCopy = textToCopy.trim();
 
     // 5. ZAPIS DO SCHOWKA
