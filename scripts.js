@@ -154,41 +154,44 @@ document.getElementById('copySpec').addEventListener('click', function () {
 
 
 ///////////////////// GENERATOR CIĄGÓW ////////////////////
-const state = new Set();
 const resultView = document.querySelector('#result');
 const allCheckboxes = document.querySelectorAll('.lista-ciagow input[type="checkbox"]');
 const defaultPlaceholder = '<span class="text-gray">Tu pojawią się zaznaczone elementy</span>';
 
-allCheckboxes.forEach(box => {
-    box.addEventListener('change', (e) => {
-        const itemValue = e.target.value;
-        
-        if (e.target.checked) {
-            state.add(itemValue);
-        } else {
-            state.delete(itemValue);
-        }
+// Zamiast trzymać stan w obiekcie Set, odczytujemy go na żądanie bezpośrednio z DOM.
+// Ponieważ allCheckboxes zawiera elementy w kolejności występowania w dokumencie,
+// tablica wynikowa również zachowa tę kolejność.
+const getSelectedValues = () => {
+    return Array.from(allCheckboxes)
+        .filter(box => box.checked)
+        .map(box => box.value);
+};
 
-        if (state.size === 0) {
+allCheckboxes.forEach(box => {
+    box.addEventListener('change', () => {
+        const selected = getSelectedValues();
+        
+        if (selected.length === 0) {
             resultView.innerHTML = defaultPlaceholder;
         } else {
             // Zmiana separatora na przecinek i spację
-            resultView.textContent = Array.from(state).join(', ');
+            resultView.textContent = selected.join(', ');
         }
     });
 });
 
 document.querySelector('#copyBtn').addEventListener('click', () => {
-    if (state.size > 0) {
+    const selected = getSelectedValues();
+    
+    if (selected.length > 0) {
         // Zmiana separatora dla tekstu trafiającego do schowka
-        const textForClipboard = Array.from(state).join(', ');
+        const textForClipboard = selected.join(', ');
         
         const copyBtn = document.querySelector('#copyBtn');
         const originalBtnHTML = copyBtn.innerHTML;
         
         navigator.clipboard.writeText(textForClipboard).then(() => {
-            // Czyszczenie stanu i widoku
-            state.clear();
+            // Czyszczenie widoku i odznaczanie checkboxów
             allCheckboxes.forEach(box => box.checked = false);
             resultView.innerHTML = defaultPlaceholder;
             
