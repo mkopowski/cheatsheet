@@ -135,3 +135,5 @@ button {color: #0095ff;}
 .spec-textarea{width:480px;height:200px;display: block;margin:0 auto;}
 
 .pole-pytanie{padding:12px 0;}
+
+label span.small {font-size:0.8em!important;color:#aaa!important;}
