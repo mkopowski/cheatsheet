@@ -148,6 +148,8 @@ button {color: #0095ff;}
     height:130px;
     overflow:hidden;
 }
+#cechy-hik .kopia-kontener:hover {cursor:pointer;background: #eee;}
+#cechy-hik .kopia-kontener:active {cursor:pointer;background: #e0e0e0;}
 
 #cechy-hik .cechy-serii .kopia-kontener {display:flex;flex-direction: column;height:80px;}
 
