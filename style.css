@@ -16,6 +16,8 @@ h2 {
     font-size: 2rem;
 }
 
+.bg-grey{background: #ddd;}
+
 .rounded-050 {
     border-radius: 0.5em;
 }
@@ -101,6 +103,43 @@ button {color: #0095ff;}
     display: inline-block;
 }
 
+#tech-tooltips .btn-tooltip {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 18px !important;
+    height: 18px !important;
+    background-color: transparent !important;
+    border: 1px solid #007bff !important; 
+    border-radius: 50% !important; 
+    margin-left: 1px !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#tech-tooltips .btn-tooltip:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#tech-tooltips .btn-tooltip i::before {
+    content: "i" !important;
+    font-family: Roboto, sans-serif !important;
+    font-weight: bold !important;
+    font-style: normal !important;
+    font-size: 12px !important;
+    color: #007bff !important;
+    line-height: 1 !important;
+}
+
+#tech-tooltips .kopia-kontener span strong {color:#da3737;font-size:1.4rem;}
+
+#nadprogramowe .kopia-kontener span strong {color:#000;font-size:1rem;}
+#nadprogramowe li {list-style-type: none;display: inline}
+
+
 #cechy-hik .kopia-kontener {
     background: #FFF;
     border: 1px solid #ddd;
@@ -109,8 +148,6 @@ button {color: #0095ff;}
     height:130px;
     overflow:hidden;
 }
-
-#cechy-hik .kopia-kontener:hover{cursor:pointer;transform: scale(1.01);background:#f4f4f4}
 
 #cechy-hik .cechy-serii .kopia-kontener {display:flex;flex-direction: column;height:80px;}
 
